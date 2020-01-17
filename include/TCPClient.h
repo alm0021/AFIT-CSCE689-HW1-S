@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Client.h"
+#include <sys/socket.h> 
+#include <netinet/in.h>
 
 // The amount to read in before we send a packet
 const unsigned int stdin_bufsize = 50;
@@ -18,6 +20,9 @@ public:
    virtual void handleConnection();
 
    virtual void closeConn();
+
+   int sock = 0, valread;
+   struct sockaddr_in serv_addr;
 
 private:
 
